@@ -1,0 +1,567 @@
+/* 顏色變數 */
+:root {
+    --color-primary-bg: #ffc0f2;
+    --color-secondary-bg: #ffffff;
+    --color-accent: #f08ec6;
+    --color-hover: #b8e0d2;
+    --color-text-main: #4e4e4e;
+    --color-dark: #333333;
+}
+
+/* 基礎重置與字體設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', 'Poppins', sans-serif;
+    color: var(--color-text-main);
+    background-color: var(--color-secondary-bg);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text-main);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 導覽列 */
+.header {
+    background-color: var(--color-primary-bg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-dark);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+    color: var(--color-accent);
+}
+
+.contact-btn {
+    border: 2px solid var(--color-accent);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-secondary-bg);
+}
+
+
+.hero-banner {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-primary-bg);
+    background-image: url('images/banner-illustration.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transform-origin: center center;
+    animation: zoomInOut 20s ease-in-out infinite alternate;
+}
+
+.hero-banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* ensures the image fills container without distortion */
+  z-index: 0;         /* behind the content */
+  transform-origin: center center;
+  animation: zoomInOut 5s ease-in-out infinite alternate;
+}
+
+.banner-content {
+    position: relative;
+    padding: 80px 0;
+    z-index: 2;
+}
+
+.main-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5rem;
+    color: var(--color-dark);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-dark);
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-secondary-bg);
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+
+.cta-button:hover {
+    background-color: var(--color-hover);
+    /* 這裡使用 hover 色，JS 會實現漸變 */
+    color: var(--color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: var(--color-accent);
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--color-text-main);
+    font-weight: 300;
+}
+
+
+.about-intro {
+    background-color: var(--color-secondary-bg);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    text-align: left;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.about-image {
+    text-align: center;
+}
+
+.styled-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    /* 柔和圓角 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.about-text h3 {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--color-accent);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+.tag-group {
+    margin-top: 20px;
+}
+
+.style-tag {
+    display: inline-block;
+    background-color: var(--color-primary-bg);
+    color: var(--color-dark);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+
+.featured-works {
+    background-color: var(--color-primary-bg);
+}
+
+.works-grid {
+    overflow: scroll;
+    height: 100vh;
+}
+
+
+.works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.work-card {
+    position: relative;
+    height: 200px;
+    background-color: var(--color-secondary-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 3px solid transparent;
+    /* 初始透明邊框 */
+}
+
+.work-card:hover {
+    transform: scale(1);
+    /* Hover 放大 */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--color-hover);
+    /* 邊框亮起 */
+}
+
+.work-card:hover img {
+    transform: scale(1.1);
+    transition: .4s;
+}
+
+.work-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.card-content h4 {
+    color: var(--color-accent);
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.work-tag {
+    font-size: 0.85rem;
+    color: var(--color-text-main);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.project-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-secondary-bg);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+    background-color: var(--color-hover);
+    color: var(--color-dark);
+}
+
+/* 聯絡我 Contact 區塊 */
+.contact-form-section {
+    background-color: var(--color-secondary-bg);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    text-align: left;
+    margin-top: 40px;
+}
+
+.contact-form h3,
+.social-links h3 {
+    color: var(--color-accent);
+    margin-bottom: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-primary-bg);
+    border-radius: 8px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1rem;
+    background-color: #fff8fb;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--color-accent);
+    color: var(--color-secondary-bg);
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #f3b1da;
+    /* 稍淺一點的粉色 */
+    transform: translateY(-1px);
+}
+
+/* 社群按鈕 */
+.social-links {
+    text-align: center;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--color-primary-bg);
+    color: var(--color-dark);
+    margin: 0 10px 20px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+/* 社群按鈕 Hover 亮光效果 */
+.social-icon:hover {
+    background-color: var(--color-hover);
+    box-shadow: 0 0 15px var(--color-hover);
+    color: var(--color-dark);
+}
+
+.contact-email {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* 頁尾 FOOTER */
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-primary-bg);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* 滾動進場動畫 (初始狀態) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* 響應式設計 RWD (調整平板與手機佈局) */
+@media (max-width: 992px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 平板：兩欄 */
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        /* 平板：單欄堆疊 */
+        text-align: center;
+    }
+
+    .about-text,
+    .contact-form,
+    .social-links {
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+        /* 手機：單欄 */
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+}
+
+#cursor-trail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.flair {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    width: 60px;
+    /* adjust as needed */
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.flip-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.flip-modal-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.flip-modal .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  z-index: 10000;
+}
+
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* zoom in */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.admin-btn {
+  padding: 10px 16px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.admin-btn:hover {
+  background: #333;
+}
